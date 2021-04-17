@@ -29,7 +29,6 @@ export const UserStored = ({ children }) => {
           setLoading(true);
           const { url, options } = TOKEN_VALIDATE_POST(token);
           const response = await fetch(url, options);
-          console.log(response)
           if (!response.ok) throw new Error("Token inválido");
           await getUser(token);
         } catch (err) {
@@ -38,6 +37,8 @@ export const UserStored = ({ children }) => {
         } finally {
           setLoading(false);
         }
+      } else {
+        setLogin(false);
       }
     }
     autoLogin();
