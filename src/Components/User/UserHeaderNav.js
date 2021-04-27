@@ -9,7 +9,7 @@ import { ReactComponent as Sair } from "../../Assets/sair.svg";
 import useMedia from "../../Hooks/useMedia";
 
 const UserHeaderNav = () => {
-  const { userLogout } = React.useContext(UserContext);
+  const { getLogout } = React.useContext(UserContext);
   const mobile = useMedia("(max-width: 40rem)");
   const [menuMobile, setMenuMobile] = React.useState(false);
 
@@ -47,7 +47,7 @@ const UserHeaderNav = () => {
           <Adicionarfoto />
           {mobile && " Acicionar Fotos"}
         </NavLink>
-        <button onClick={userLogout}>
+        <button onClick={getLogout}>
           <Sair />
           {mobile && " Sair"}
         </button>

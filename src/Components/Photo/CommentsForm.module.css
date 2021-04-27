@@ -5,6 +5,10 @@
   align-items: stretch;
 }
 
+.singlePhoto.form {
+  padding: 0px 0px .5rem 0px;
+}
+
 .textarea {
   display: block;
   width: 100%;

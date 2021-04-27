@@ -4,6 +4,10 @@
   word-break: break-word;
 }
 
+.singlePhoto.comments {
+  padding: 0px;
+}
+
 .comments li {
   margin-bottom: .5rem;
   line-height: 1.2;
