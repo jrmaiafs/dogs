@@ -17,8 +17,7 @@ export const UserStored = ({ children }) => {
     const json = await response.json();
     setData(json);
     setLogin(true);
-    navigate('/conta');
-  }, [navigate])
+  }, [])
 
   React.useEffect(() => {
     async function autoLogin() {
