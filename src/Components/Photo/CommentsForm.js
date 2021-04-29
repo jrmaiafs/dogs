@@ -6,7 +6,7 @@ import styles from './CommentsForm.module.css'
 
 const CommentsForm = ({id, setComments, single}) => {
   const [comment, setComment] = React.useState('');
-  const { request, error } = useFetch();
+  const { request} = useFetch();
 
   async function handleSubmit(event) {
     event.preventDefault();

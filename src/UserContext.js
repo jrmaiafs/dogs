@@ -9,15 +9,24 @@ export const UserStored = ({ children }) => {
   const [login, setLogin] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const getUser = React.useCallback(async function(token) {
+  const getLogout = React.useCallback(() => {
+    setData(null);
+    setError(null);
+    setLoading(false);
+    setLogin(null);
+    window.localStorage.removeItem("token");
+    navigate("/login");
+  }, [navigate]);
+
+  const getUser = React.useCallback(async function (token) {
     const { url, options } = USER_GET(token);
     const response = await fetch(url, options);
     const json = await response.json();
     setData(json);
     setLogin(true);
-  }, [])
+  }, []);
 
   React.useEffect(() => {
     async function autoLogin() {
@@ -41,7 +50,7 @@ export const UserStored = ({ children }) => {
       }
     }
     autoLogin();
-  }, [getUser]);
+  }, [getUser, getLogout]);
 
   async function userLogin(username, password) {
     try {
@@ -49,29 +58,23 @@ export const UserStored = ({ children }) => {
       setLoading(true);
       const { url, options } = TOKEN_POST({ username, password });
       const response = await fetch(url, options);
-      if (!response.ok) throw new Error(`Error: Login Inválido`)
+      if (!response.ok) throw new Error(`Error: Login Inválido`);
+      navigate("/conta");
       const { token } = await response.json();
       window.localStorage.setItem("token", token);
       await getUser(token);
     } catch (err) {
-      setError(err.message)
+      setError(err.message);
       setLogin(null);
     } finally {
       setLoading(false);
     }
   }
 
-  function getLogout() {
-    setData(null);
-    setError(null);
-    setLoading(false);
-    setLogin(null);
-    window.localStorage.removeItem("token");
-    navigate('/login');
-  }
-
   return (
-    <UserContext.Provider value={{ userLogin, data, getLogout, loading, error, login }}>
+    <UserContext.Provider
+      value={{ userLogin, data, getLogout, loading, error, login }}
+    >
       {children}
     </UserContext.Provider>
   );
