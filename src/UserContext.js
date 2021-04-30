@@ -41,7 +41,6 @@ export const UserStored = ({ children }) => {
           await getUser(token);
         } catch (err) {
           getLogout();
-          setError(err);
         } finally {
           setLoading(false);
         }
