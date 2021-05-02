@@ -1,5 +1,5 @@
 // const API_URL = "https://dogsapi.origamid.dev/json";
-const API_URL = "http://jrdogsapi.test/json";
+const API_URL = "https://jrdogsapi.test/json";
 
 export function TOKEN_POST(body) {
   return {
