@@ -6,6 +6,7 @@ import useForm from "../../Hooks/useForm";
 import Button from "../Form/Button";
 import Input from "../Form/Input";
 import Error from "../Helper/Error";
+import Head from "../Helper/Head";
 
 const LoginPasswordReset = () => {
   const navigate = useNavigate();
@@ -29,6 +30,7 @@ const LoginPasswordReset = () => {
   }
   return (
     <section>
+      <Head title="Resetar senha" description="Rota para resetar a senha" />
       <h1 className="title">Resete sua senha</h1>
       <form onSubmit={handleSubmit}>
         <Input label="Nova Senha" type="text" name="email" {...login} />

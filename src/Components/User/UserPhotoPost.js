@@ -7,6 +7,7 @@ import styles from "./UserPhotoPost.module.css";
 import { PHOTO_POST } from "../../api";
 import Error from '../Helper/Error'
 import { useNavigate } from "react-router-dom";
+import Head from "../Helper/Head";
 
 const UserPhotoPost = () => {
   const nome = useForm();
@@ -26,9 +27,9 @@ const UserPhotoPost = () => {
     event.preventDefault();
     const formData = new FormData();
     formData.append("img", img.raw);
-    formData.append("nome", nome.value);
-    formData.append("peso", peso.value);
-    formData.append("idade", idade.value);
+    formData.append("name", nome.value);
+    formData.append("weight", peso.value);
+    formData.append("age", idade.value);
 
     const token = window.localStorage.getItem("token");
     const { url, options } = PHOTO_POST(formData, token);
@@ -46,6 +47,7 @@ const UserPhotoPost = () => {
   }
   return (
     <section className={styles.photoPost}>
+      <Head title="Poste sua foto" description="aqui você pode postar qualquer foto que você quiser" />
       <form onSubmit={handleSubmit}>
         <Input label="Nome" type="text" name="nome" {...nome} />
         <Input label="Peso" type="text" name="peso" {...peso} />

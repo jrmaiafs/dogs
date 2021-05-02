@@ -58,10 +58,11 @@ export const UserStored = ({ children }) => {
       const { url, options } = TOKEN_POST({ username, password });
       const response = await fetch(url, options);
       if (!response.ok) throw new Error(`Error: Login Inválido`);
+      if (response.ok) console.log("ok");
+      const json = await response.json();
+      window.localStorage.setItem("token", json.token)
+      await getUser(json.token);
       navigate("/conta");
-      const { token } = await response.json();
-      window.localStorage.setItem("token", token);
-      await getUser(token);
     } catch (err) {
       setError(err.message);
       setLogin(null);

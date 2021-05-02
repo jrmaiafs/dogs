@@ -16,6 +16,7 @@ const CommentsForm = ({id, setComments, single}) => {
     const {response, json} = await request(url, options);
     if (response.ok) {
       setComments((comments) => [...comments, json]);
+      setComment('');
     }
   }
 

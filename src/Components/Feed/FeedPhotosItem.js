@@ -12,7 +12,7 @@ const FeedPhotosItem = ({ photo, setModalPhoto}) => {
           src={photo.src}
           alt={`foto ampliada da(o) carrocha(o) ${photo.title}`}
         />
-      <span className={styles.visualizacao}>{photo.acessos}</span>
+      <span className={styles.visualizacao}>{photo.accesses}</span>
     </li>
   );
 };

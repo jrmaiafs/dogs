@@ -7,6 +7,7 @@ import Input from "../Form/Input";
 import Error from "../Helper/Error";
 import styles from "./LoginForm.module.css";
 import btnStyles from "../Form/Button.module.css"
+import Head from "../Helper/Head";
 
 const LoginForm = () => {
   const username = useForm();
@@ -22,6 +23,7 @@ const LoginForm = () => {
 
   return (
     <section className="animeLeft">
+      <Head title="Login" description="rota para afetuar login" />
       <h2 className="title">Login</h2>
       <form className={styles.form} onSubmit={handleSubmit}>
         <Input type="text" label="E-mail" name="username" {...username} />

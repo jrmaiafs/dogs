@@ -13,22 +13,25 @@ import UserProfile from "./Components/User/UserProfile";
 import NotFound from "./NotFound";
 
 function App() {
-
   return (
-    <BrowserRouter>
-      <UserStored>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="login/*" element={<Login />} />
-          <ProtectedRoute path="conta/*" element={<User />} />
-          <Route path="foto/:id" element={<Photo />} />
-          <Route path="perfil/:user" element={<UserProfile />} />
-          <Route path="*" element={<NotFound />}/>
-        </Routes>
-        <Footer />
-      </UserStored>
-    </BrowserRouter>
+    <div className="App">
+      <BrowserRouter>
+        <UserStored>
+          <Header />
+          <main className="appBody">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="login/*" element={<Login />} />
+              <ProtectedRoute path="conta/*" element={<User />} />
+              <Route path="foto/:id" element={<Photo />} />
+              <Route path="perfil/:user" element={<UserProfile />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+        </UserStored>
+      </BrowserRouter>
+    </div>
   );
 }
 
