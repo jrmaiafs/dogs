@@ -31,8 +31,8 @@ const PhotoContent = ({ data, single }) => {
             <Link to={`/foto/${photo.id}`}>{photo.title}</Link>
           </h1>
           <ul className={styles.attributes}>
-            <li>{photo.idade} anos</li>
-            <li>{photo.peso} kg</li>
+            <li>{photo.age} anos</li>
+            <li>{photo.weight} kg</li>
           </ul>
         </div>
       </div>

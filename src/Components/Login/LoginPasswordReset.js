@@ -29,7 +29,7 @@ const LoginPasswordReset = () => {
     }
   }
   return (
-    <section>
+    <section className="animeLeft">
       <Head title="Resetar senha" description="Rota para resetar a senha" />
       <h1 className="title">Resete sua senha</h1>
       <form onSubmit={handleSubmit}>
