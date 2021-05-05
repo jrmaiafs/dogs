@@ -1,19 +1,21 @@
-import React from 'react'
-import styles from './Image.module.css';
+import React from "react";
+import styles from "./Image.module.css";
+import Likes from "./Likes";
 
-const Image = ({alt, ...props}) => {
+const Image = ({ alt, ...props }) => {
   const [skeleton, setSkeleton] = React.useState(true);
 
-  function handleLoad({target}) {
+  function handleLoad({ target }) {
     setSkeleton(false);
     target.style.opacity = 1;
   }
   return (
     <div className={styles.wrapper}>
-      {skeleton &&  <div className={styles.skeleton}></div>}
-      <img onLoad={handleLoad} className={styles.img} alt={alt} {...props}/>
+      {skeleton && <div className={styles.skeleton}></div>}
+      <img className={styles.img} onLoad={handleLoad} alt={alt} {...props} />
+      {/* <Likes /> */}
     </div>
-  )
-}
+  );
+};
 
-export default Image
+export default Image;

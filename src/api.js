@@ -1,5 +1,5 @@
 // const API_URL = "https://dogsapi.origamid.dev/json";
-const API_URL = "https://jrdogsapi.test/json";
+const API_URL = "http://jrdogsapi.test/json";
 
 export function TOKEN_POST(body) {
   return {
@@ -34,6 +34,19 @@ export function USER_GET(token) {
       headers: {
         Authorization: "Bearer " + token,
       },
+    },
+  };
+}
+
+export function PHOTO_CURTIR(id, token) {
+  return {
+    url: `${API_URL}/api/photo/curtir/${id}`,
+    options: {
+      method: "GET",
+      cache: "no-store",
+      headers: {
+        Authorization: "Bearer " + token
+      }
     },
   };
 }
@@ -83,6 +96,7 @@ export function PHOTO_GET(id) {
     },
   };
 }
+
 
 export function COMMENT_PHOTO(id, token, comment) {
   return {
