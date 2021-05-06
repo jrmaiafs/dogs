@@ -51,6 +51,19 @@ export function PHOTO_CURTIR(id, token) {
   };
 }
 
+export function LIKES_GET(id, token) {
+  return {
+    url: `${API_URL}/api/photo/likes/${id}`,
+    options: {
+      method: "GET",
+      cache: "no-store",
+      headers: {
+        Authorization: "Bearer " + token
+      }
+    },
+  };
+}
+
 export function USER_POST(body) {
   return {
     url: API_URL + "/api/user",

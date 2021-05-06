@@ -2,53 +2,65 @@ import React from "react";
 import styles from "./Likes.module.css";
 import { ReactComponent as Heart } from "../../Assets/heart.svg";
 import { ReactComponent as HeartCurtido } from "../../Assets/heart_curtido.svg";
-import { PHOTO_CURTIR } from "../../api";
+import { LIKES_GET, PHOTO_CURTIR } from "../../api";
 import useFetch from "../../Hooks/useFetch";
 
 const Likes = ({ photo, userID }) => {
   const { data, request } = useFetch();
   const [curtida, setCurtida] = React.useState(false);
+  console.log(photo)
 
   React.useEffect(() => {
     if (data && data.ids_photo_likes) {
       const likesUser = data.ids_photo_likes.map(
         (item) => Number(item) === userID
       );
-      console.log(likesUser);
       if (likesUser[0] === true) {
         setCurtida(true);
       }
     }
-    // handleClick()
   }, [data, userID]);
 
   React.useEffect(() => {
     async function fetchLikes() {
       const token = window.localStorage.getItem("token");
-      const { url, options } = PHOTO_CURTIR(token);
-      const { json } = await request(url, options);
-      setCurtida(json);
+      const { url, options } = LIKES_GET(photo.id, token);
+      request(url, options);
     }
-    fetchLikes()
-  }, []);
+    fetchLikes();
+  }, [photo.id, request]);
   async function handleClick() {
     const token = window.localStorage.getItem("token");
     const { url, options } = PHOTO_CURTIR(photo.id, token);
-    const { response, json } = await request(url, options);
+    const { json } = await request(url, options);
     setCurtida(json);
   }
+  if (userID === photo.user_ID)
+    return (
+      <div
+        style={{ justifyContent: "center" }}
+        className={`${styles.likes} ${styles.curtidas}`}
+      >
+        <span style={{fontSize: '0.875rem', fontWeight: 'normal'}}>Curtiram sua foto</span>
+        <button style={{cursor: "default"}}>
+          <Heart />
+        </button>
+        <span style={{fontSize: '1rem', fontWeight: 'normal', marginLeft: '1rem'}} >{data ? data.curtidas : photo.curtidas}</span>
+      </div>
+    );
   return (
-    <div  className={`${styles.likes} ${curtida ? styles.likesOpacity : ''}`} >
+    <div className={`${styles.likes} ${curtida ? styles.likesOpacity : ""}`}>
       {curtida ? (
-        <button >
+        <button style={{cursor: "default"}}>
           <HeartCurtido />{" "}
         </button>
       ) : (
-        <button className={`${styles.likes}`} onClick={handleClick}>
+        <button style={{display: "flex", alignItems: "center"}} onClick={handleClick}>
+          <span style={{fontSize: '1rem', fontWeight: 'normal', marginRight: '1rem'}}>{`${photo.author}` }</span>
           <Heart />
         </button>
       )}
-      <span>{data ? data.curtidas : photo.curtidas}</span>
+      <span style={{fontSize: '1rem', fontWeight: 'normal', marginLeft: '1rem'}} >{data ? data.curtidas : photo.curtidas}</span>
     </div>
   );
 };

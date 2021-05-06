@@ -1,7 +1,7 @@
 .likes {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   height: auto;
   padding: 1rem 0px;
@@ -10,12 +10,15 @@
 .likes button {
   background: transparent;
   border: 1px solid transparent;
+  cursor: pointer;
+  outline: none;
 }
 
 .likes button:hover svg > * {
   fill-opacity: 1;
   stroke: #f31;
-  stroke-width: 1.5;
+  stroke-width: 2;
+  outline: none;
 }
 
 .likes span {
@@ -31,4 +34,18 @@
   fill-opacity: 0.3;
   stroke: #f31;
   stroke: none;
+  outline: none;
 }
+
+.likesOpacity button {
+  background: transparent;
+  border: 1px solid transparent;
+  outline: none;
+}
+
+.curtidas.likes button:hover svg > * {
+    fill-opacity: 0.79;
+    stroke: #f31;
+    stroke-width: 0;
+  }
+

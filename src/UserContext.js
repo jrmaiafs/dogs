@@ -58,7 +58,7 @@ export const UserStored = ({ children }) => {
       const { url, options } = TOKEN_POST({ username, password });
       const response = await fetch(url, options);
       if (!response.ok) throw new Error(`Error: Login Inválido`);
-      if (response.ok) console.log("ok");
+      if (response.ok);
       const json = await response.json();
       window.localStorage.setItem("token", json.token)
       await getUser(json.token);

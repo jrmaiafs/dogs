@@ -18,7 +18,7 @@ const FeedPhotosItem = ({ photo, setModalPhoto }) => {
         />
         <span className={styles.visualizacao}>{photo.accesses}</span>
       </div>
-      {login && data.id !== photo.user_ID && <Likes userID={data.id} photo={photo} />}
+      {login && <Likes userID={data.id} photo={photo} />}
     </li>
   );
 };
