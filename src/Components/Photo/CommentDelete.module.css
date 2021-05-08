@@ -1,0 +1,37 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: flex-end;
+  gap: .5rem;
+}
+
+.container svg {
+  display: block;
+  width: 19px;
+  height: 19px;
+  cursor: pointer;
+}
+
+.edit {
+  margin-bottom: 0.5rem;
+}
+
+.arrow {
+  opacity: 0.5;
+}
+
+.options {
+  height: 0pxm;
+  transition: height 4s linear;
+  transform: translateX(-20px);
+  animation: options .5s ease forwards;
+
+}
+
+@keyframes options {
+  to {
+    transform: initial;
+
+  }
+}
+
