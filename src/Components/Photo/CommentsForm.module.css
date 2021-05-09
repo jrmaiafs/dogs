@@ -38,6 +38,7 @@
   padding: 0 1rem;
   cursor: pointer;
   color: #333;
+  outline-color: #eee;
 }
 
 .button:focus svg path,

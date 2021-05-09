@@ -125,6 +125,19 @@ export function COMMENT_PHOTO(id, token, comment) {
   };
 }
 
+export function COMMENT_DELETE(body){
+  return {
+    url: API_URL + `/api/comment/delete`,
+    options: {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body)
+    },
+  };
+}
+
 export function PHOTO_DELETE(id, token) {
   return {
     url: `${API_URL}/api/photo/${id}`,

@@ -8,7 +8,6 @@ import useFetch from "../../Hooks/useFetch";
 const Likes = ({ photo, userID }) => {
   const { data, request } = useFetch();
   const [curtida, setCurtida] = React.useState(false);
-  console.log(photo)
 
   React.useEffect(() => {
     if (data && data.ids_photo_likes) {

@@ -4,23 +4,34 @@ import { ReactComponent as ArrowDown } from "../../Assets/Arrow-down.svg";
 import { ReactComponent as ArrowUp } from "../../Assets/Arrow-up.svg";
 import { ReactComponent as Edit } from "../../Assets/edit.svg";
 import { ReactComponent as Delete } from "../../Assets/delete.svg";
+import { ReactComponent as EditS } from "../../Assets/EditS.svg";
 
-const CommentDelete = () => {
-  const [edit, setEdit] = React.useState(false);
+const CommentDelete = ({idComment, commentPostId}) => {
+  const [options, setOptions] = React.useState(false);
+  const [edit, setEdit] = React.useState(true);
+
   function handleClick() {
-    setEdit((edit) => !edit);
+    setOptions((option) => !option);
   }
+  function handleEdit() {
+    setEdit((edit) => !edit)
+  }
+
+  function handleDelete() {
+    
+  }
+
   return (
-    <div class={styles.container}>
+    <div className={styles.container}>
       <div onClick={handleClick} className={styles.arrow}>
-        {edit ? <ArrowUp /> : <ArrowDown />}
+        {options ? <ArrowUp /> : <ArrowDown />}
       </div>
-      {edit && (
+      {options && (
         <div className={styles.options}>
-          <div class={styles.edit}>
-            <Edit />
-          </div>
-          <div class={styles.delete}>
+          {/* <div onClick={handleEdit} className={styles.edit}>
+            {edit ? <Edit /> : <EditS />}
+          </div> */}
+          <div onClick={handleDelete} className={styles.delete}>
             <Delete />
           </div>
         </div>

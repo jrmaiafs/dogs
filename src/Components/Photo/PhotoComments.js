@@ -6,12 +6,14 @@ import CommentDelete from "./CommentDelete";
 
 const PhotoComments = (props) => {
   const [comments, setComments] = React.useState(() => props.comments);
-  const { login } = React.useContext(UserContext);
+  const { login, data } = React.useContext(UserContext);
   const refUl = React.useRef();
+  console.log(props);
+  // console.log(data);
 
   React.useEffect(() => {
     refUl.current.scrollTop = refUl.current.scrollHeight;
-  }, [comments]);
+  }, []);
 
   return (
     <>
@@ -27,7 +29,12 @@ const PhotoComments = (props) => {
               <b>{comment.comment_author}: </b>
               <span>{comment.comment_content}</span>
             </div>
-            <CommentDelete />
+            {props.userID === Number(comment.comment_agent) && (
+              <CommentDelete
+                idComment={comment.comment_ID}
+                commentPostId={comment.comment_post_ID}
+              />
+            )}
           </li>
         ))}
       </ul>
