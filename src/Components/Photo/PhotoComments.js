@@ -8,9 +8,7 @@ const PhotoComments = (props) => {
   const [comments, setComments] = React.useState(() => props.comments);
   const { login, data } = React.useContext(UserContext);
   const refUl = React.useRef();
-  console.log(props);
-  // console.log(data);
-
+  
   React.useEffect(() => {
     refUl.current.scrollTop = refUl.current.scrollHeight;
   }, []);
@@ -29,11 +27,17 @@ const PhotoComments = (props) => {
               <b>{comment.comment_author}: </b>
               <span>{comment.comment_content}</span>
             </div>
-            {props.userID === Number(comment.comment_agent) && (
+            {data.id === props.userID || data.id === Number(comment.user_id) ? (
               <CommentDelete
+                comments={comments}
+                photoID={props.id}
+                setComments={setComments}
+                Dtrue={true}
                 idComment={comment.comment_ID}
                 commentPostId={comment.comment_post_ID}
               />
+            ) : (
+              <CommentDelete false={false} />
             )}
           </li>
         ))}

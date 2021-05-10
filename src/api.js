@@ -45,8 +45,8 @@ export function PHOTO_CURTIR(id, token) {
       method: "GET",
       cache: "no-store",
       headers: {
-        Authorization: "Bearer " + token
-      }
+        Authorization: "Bearer " + token,
+      },
     },
   };
 }
@@ -58,8 +58,8 @@ export function LIKES_GET(id, token) {
       method: "GET",
       cache: "no-store",
       headers: {
-        Authorization: "Bearer " + token
-      }
+        Authorization: "Bearer " + token,
+      },
     },
   };
 }
@@ -110,7 +110,6 @@ export function PHOTO_GET(id) {
   };
 }
 
-
 export function COMMENT_PHOTO(id, token, comment) {
   return {
     url: API_URL + `/api/comment/${id}`,
@@ -125,15 +124,15 @@ export function COMMENT_PHOTO(id, token, comment) {
   };
 }
 
-export function COMMENT_DELETE(body){
+export function COMMENT_DELETE(id, token) {
   return {
-    url: API_URL + `/api/comment/delete`,
+    url: API_URL + `/api/comment/delete/${id}`,
     options: {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
       },
-      body: JSON.stringify(body)
     },
   };
 }
@@ -152,38 +151,38 @@ export function PHOTO_DELETE(id, token) {
 
 export function PASSWORD_LOST(body) {
   return {
-    url: API_URL + '/api/password/lost',
+    url: API_URL + "/api/password/lost",
     options: {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
-    }
-  }
+    },
+  };
 }
 
 export function PASSWORD_RESET(body) {
   return {
-    url: API_URL + '/api/password/reset',
+    url: API_URL + "/api/password/reset",
     options: {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
-    }
-  }
+    },
+  };
 }
 
 export function STATS_GET(token) {
   return {
-    url: API_URL + '/api/stats',
+    url: API_URL + "/api/stats",
     options: {
-      method: 'GET',
+      method: "GET",
       headers: {
         Authorization: "Bearer " + token,
       },
-    }
-  }
+    },
+  };
 }
