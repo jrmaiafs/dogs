@@ -8,6 +8,7 @@ const UserProfile = () => {
   return (
     <section className="container mainContainer">
       <Head title={user} description="perfil do usuário" />
+
       <Feed user={user} />
     </section>
   )

@@ -31,14 +31,25 @@
 }
 
 .button {
-  border: none;
+  border: 1px solid transparent;
+  border-radius: 0.2rem;
   overflow: hidden;
   font-size: 1rem;
-  background: transparent;
+  background: #eee;
   padding: 0 1rem;
   cursor: pointer;
   color: #333;
-  outline-color: #eee;
+  margin-left: .4rem;
+}
+
+.button:focus,
+.button:hover {
+  border-radius: 0.2rem;
+  transition: .2s;
+  outline: none;
+  border-color: #fb1;
+  background: white;
+  box-shadow: 0 0 0 3px #fea;
 }
 
 .button:focus svg path,

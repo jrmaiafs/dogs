@@ -1,0 +1,32 @@
+.main {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  gap: 1rem;
+}
+
+.numeros p {
+  text-align: end;
+}
+
+.numeros b::before {
+  content: "";
+  display: inline-block;
+  margin-right: 5px;
+  background: #fb1;
+  width: 5px;
+  height: 14px;
+}
+
+.numeros {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5rem 0;
+  /* min-width: 270px; */
+}
+
+.numeros {
+  margin-top: .5rem;
+  border-bottom: 1px solid #eee;
+}

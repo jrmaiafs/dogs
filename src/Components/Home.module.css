@@ -1,0 +1,99 @@
+.home {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.description {
+  position: relative;
+  padding: 0 1rem;
+}
+
+.description h1 {
+  font-family: var(--type-second);
+  font-size: 3rem;
+  margin-left: 4rem;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+}
+
+
+.description h1::after {
+  content: "";
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #fb1;
+  position: absolute;
+  bottom: 50%;
+  left: -55px;
+  border-radius: 0.3rem;
+  z-index: -1;
+  box-shadow: -15px -15px 0 #fea, -15px 15px 0 #fea;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+  margin-top: 1rem;
+  /* line-height: 100%; */
+}
+
+.intro p {
+  font-size: 1.5rem;
+  margin-left: 5px;
+  padding-bottom: 1rem;
+}
+
+.intro p::before {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 0px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #fb1;
+  left: -5px;
+  position: absolute;
+}
+
+.cadastro {
+  position: relative;
+  margin-left: 20px;
+}
+
+.cadastro h2 {
+  margin-bottom: .5rem ;
+
+}
+
+.cadastro h2::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 4px;
+  background: #ddd;
+  border-radius: .2rem;
+  position: absolute;
+  top: 12px;
+  left: -25px;
+}
+
+.login {
+  margin-top: 1rem;
+  margin-left: 20px;
+}
+
+.login p{
+  margin-bottom: .5rem;
+}
+
+
+.espiada {
+  margin-bottom: 1rem;
+  text-align: center;
+}
