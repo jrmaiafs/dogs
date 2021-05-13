@@ -39,9 +39,10 @@ const CommentDelete = ({
   if (Dtrue)
     return (
       <div className={styles.container}>
-        <div onClick={handleClick} className={styles.arrow}>
-          {options ? <ArrowUp /> : <ArrowDown />}
+        <div onClick={handleClick} className={`${styles.arrow} ${options && styles.arrowUp}`}>
+          <ArrowDown />
         </div>
+
         {options && (
           <div className={styles.options}>
             <div onClick={handleDelete} className={styles.delete}>

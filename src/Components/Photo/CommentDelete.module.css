@@ -18,12 +18,13 @@
 
 .arrow {
   opacity: 0.5;
-
 }
 
-.delete {
-
+.arrowUp svg {
+  transform: rotate(180deg);
 }
+
+
 
 .options {
   height: 0pxm;
