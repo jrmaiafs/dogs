@@ -6,11 +6,11 @@
   justify-items: center;
 }
 
-@media (max-width: 46rem) {
+/* @media (max-width: 46rem) {
   .feed {
     grid-template-columns: 1fr;
   }
-}
+} */
 
 @media (max-width: 40rem) {
   .feed {

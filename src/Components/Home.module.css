@@ -4,6 +4,17 @@
   gap: 1rem;
 }
 
+.homeLogado {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (max-width: 620px) {
+  .home {
+    grid-template-columns: 1fr;
+  }
+}
+
 .description {
   position: relative;
   padding: 0 1rem;

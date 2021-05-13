@@ -10,10 +10,11 @@ const UserConta = () => {
   const { data: dados } = React.useContext(UserContext);
   const { data, error, loading, request } = useFetch();
   const [photos, setPhotos] = React.useState(null);
+
   React.useEffect(() => {
     const total = -1;
     const page = 1;
-    const user = 8;
+    const user = dados.id;
 
     async function fetchPhotos() {
       const { url, options } = PHOTOS_GET({ page, total, user });
@@ -27,26 +28,25 @@ const UserConta = () => {
     }
     fetchPhotos();
 
-  }, [request, data]);
-  console.log(photos)
+  }, [request, dados]);
   return (
     <div className={styles.main}>
       <div className={styles.dados}>
-        <div className={styles.numeros}>
+        <li className={styles.numeros}>
           <b>Nome:</b> <p>{dados && dados.name}</p>
-        </div>
-        <div className={styles.numeros}>
+        </li>
+        <li className={styles.numeros}>
           <b>Email:</b> <p>{dados && dados.email}</p>
-        </div>
-        <div className={styles.numeros}>
+        </li>
+        <li className={styles.numeros}>
           <b>Fotos:</b> <p>{photos && photos.fotos}</p>
-        </div>
-        <div className={styles.numeros}>
+        </li>
+        <li className={styles.numeros}>
           <b>Curtidas: </b> <p>{photos && photos.curtidas}</p>
-        </div>
-        <div className={styles.numeros}>
+        </li>
+        <li className={styles.numeros}>
           <b>Visualizações: </b> <p>{photos && photos.acessos}</p>
-        </div>
+        </li>
       </div>
       <Feed user={dados.id} />
     </div>

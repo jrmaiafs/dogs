@@ -1,6 +1,6 @@
 .main {
   display: grid;
-  grid-template-columns: 35% 65%;
+  grid-template-columns: 1fr 2fr;
   gap: 1rem;
 }
 
@@ -19,14 +19,25 @@
 
 .numeros {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   align-items: center;
   justify-content: space-between;
   padding: .5rem 0;
-  /* min-width: 270px; */
 }
 
 .numeros {
   margin-top: .5rem;
   border-bottom: 1px solid #eee;
+}
+
+.dados li:nth-child(2) {
+  word-break: break-all;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+@media (max-width: 40rem){
+  .main {
+    grid-template-columns: 1fr;
+  }
 }
