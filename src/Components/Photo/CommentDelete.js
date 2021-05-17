@@ -1,10 +1,7 @@
 import React from "react";
 import styles from "./CommentDelete.module.css";
 import { ReactComponent as ArrowDown } from "../../Assets/Arrow-down.svg";
-import { ReactComponent as ArrowUp } from "../../Assets/Arrow-up.svg";
-import { ReactComponent as Edit } from "../../Assets/edit.svg";
 import { ReactComponent as Delete } from "../../Assets/delete.svg";
-import { ReactComponent as EditS } from "../../Assets/EditS.svg";
 import { COMMENT_DELETE, PHOTO_GET } from "../../api";
 import useFetch from "../../Hooks/useFetch";
 

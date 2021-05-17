@@ -8,8 +8,6 @@ const PhotoComments = (props) => {
   const [comments, setComments] = React.useState(() => props.comments);
   const { login, data } = React.useContext(UserContext);
   const refUl = React.useRef();
-  // console.log(data)
-  console.log(props);
 
   React.useEffect(() => {
     refUl.current.scrollTop = refUl.current.scrollHeight;
