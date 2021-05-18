@@ -37,10 +37,9 @@ const Likes = ({ photo, userID }) => {
   if (userID === photo.user_ID)
     return (
       <div
-        style={{ justifyContent: "center" }}
         className={`${styles.likes} ${styles.curtidas}`}
       >
-        <span style={{fontSize: '0.875rem', fontWeight: 'normal'}}>Curtiram sua foto</span>
+        <span>Curtiram sua foto</span>
         <button style={{cursor: "default"}}>
           <Heart />
         </button>

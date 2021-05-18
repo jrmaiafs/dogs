@@ -41,7 +41,6 @@ const Home = () => {
               <p>Dê uma espiada nas fotos dos usuários</p>
             </div>
           )}
-
           <Feed />
         </div>
       </div>

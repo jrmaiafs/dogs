@@ -52,7 +52,7 @@ const UserPhotoPost = () => {
         <Input label="Nome" type="text" name="nome" {...nome} />
         <Input label="Peso" type="text" name="peso" {...peso} />
         <Input label="Idade" type="text" name="idade" {...idade} />
-        <input className={styles.file} type="file" name="img" id="img" onChange={handleImgChange} />
+        <input multiple className={styles.file} type="file" name="img" id="img" onChange={handleImgChange} />
         {loading ? <Button disabled>Enviando...</Button> : <Button>Enviar</Button>}
         <Error error={error} />
       </form>

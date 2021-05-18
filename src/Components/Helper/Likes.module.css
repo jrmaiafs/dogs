@@ -49,3 +49,16 @@
     stroke-width: 0;
   }
 
+  .curtidas.likes span:nth-child(1) {
+    font-size: .875rem;
+    font-weight: normal;
+    color: pink;
+  }
+
+  .curtidas.likes span:nth-child(2) {
+    font-size: 1rem;
+    font-weight: normal;
+    margin-left: 1rem;
+    color: yellow;
+  }
+

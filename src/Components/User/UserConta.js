@@ -8,7 +8,7 @@ import styles from "./UserConta.module.css";
 
 const UserConta = () => {
   const { data: dados } = React.useContext(UserContext);
-  const { data, error, loading, request } = useFetch();
+  const {request } = useFetch();
   const [photos, setPhotos] = React.useState(null);
 
   React.useEffect(() => {

@@ -12,10 +12,6 @@
   cursor: pointer;
 }
 
-.edit {
-  margin-bottom: 0.5rem;
-}
-
 .arrow {
   opacity: 0.5;
 }
@@ -24,20 +20,16 @@
   transform: rotate(180deg);
 }
 
-
-
 .options {
   height: 0pxm;
   transition: height 4s linear;
   transform: translateX(-20px);
   animation: options .5s ease forwards;
-
 }
 
 @keyframes options {
   to {
     transform: initial;
-
   }
 }
 
