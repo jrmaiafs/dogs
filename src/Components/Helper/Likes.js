@@ -36,29 +36,29 @@ const Likes = ({ photo, userID }) => {
   }
   if (userID === photo.user_ID)
     return (
-      <div
-        className={`${styles.likes} ${styles.curtidas}`}
-      >
+      <div className={`${styles.likes} ${styles.curtidas}`}>
         <span>Curtiram sua foto</span>
-        <button style={{cursor: "default"}}>
+        <button>
           <Heart />
         </button>
-        <span style={{fontSize: '1rem', fontWeight: 'normal', marginLeft: '1rem'}} >{data ? data.curtidas : photo.curtidas}</span>
+        <span>{data ? data.curtidas : photo.curtidas}</span>
       </div>
     );
   return (
     <div className={`${styles.likes} ${curtida ? styles.likesOpacity : ""}`}>
       {curtida ? (
-        <button style={{cursor: "default"}}>
+        <button>
           <HeartCurtido />{" "}
         </button>
       ) : (
-        <button style={{display: "flex", alignItems: "center"}} onClick={handleClick}>
-          <span style={{fontSize: '1rem', fontWeight: 'normal', marginRight: '1rem'}}>{`${photo.author}` }</span>
-          <Heart />
-        </button>
+        <>
+          <span>{`${photo.author}`}</span>
+          <button onClick={handleClick}>
+            <Heart />
+          </button>
+        </>
       )}
-      <span style={{fontSize: '1rem', fontWeight: 'normal', marginLeft: '1rem'}} >{data ? data.curtidas : photo.curtidas}</span>
+      <span>{data ? data.curtidas : photo.curtidas}</span>
     </div>
   );
 };

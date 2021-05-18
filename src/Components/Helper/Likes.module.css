@@ -21,15 +21,6 @@
   outline: none;
 }
 
-.likes span {
-  font-family: var(--type-first);
-  font-size: 1.2rem;
-  margin-right: .5rem;
-  font-weight: 600;
-  color: #333;
-}
-
-
 .likesOpacity button:hover svg > * {
   fill-opacity: 0.3;
   stroke: #f31;
@@ -38,27 +29,41 @@
 }
 
 .likesOpacity button {
+  display: flex;
+  align-items: center;
   background: transparent;
   border: 1px solid transparent;
   outline: none;
+  cursor: default;
 }
 
-.curtidas.likes button:hover svg > * {
-    fill-opacity: 0.79;
-    stroke: #f31;
-    stroke-width: 0;
-  }
+.likesOpacity span {
+  font-size: 1rem;
+  font-weight: normal;
+}
 
-  .curtidas.likes span:nth-child(1) {
-    font-size: .875rem;
-    font-weight: normal;
-    color: pink;
-  }
+.curtidas button:hover svg > * {
+  fill-opacity: 0.79;
+  stroke: #f31;
+  stroke-width: 0;
+}
 
-  .curtidas.likes span:nth-child(2) {
-    font-size: 1rem;
-    font-weight: normal;
-    margin-left: 1rem;
-    color: yellow;
-  }
+.curtidas button {
+  cursor: default;
+}
+
+.curtidas span:nth-child(1) {
+  font-size: 0.875rem;
+  font-weight: normal;
+}
+
+.curtidas span:nth-child(3) {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+svg {
+  margin: 0 1rem;
+}
+
 
