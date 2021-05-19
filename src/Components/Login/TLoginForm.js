@@ -6,11 +6,9 @@ import Button from "../Form/Button";
 import Input from "../Form/Input";
 import Error from "../Helper/Error";
 import styles from "./LoginForm.module.css";
-import btnStyles from "../Form/Button.module.css";
 import Head from "../Helper/Head";
 
 const TLoginForm = () => {
-  const [cadastro, setCadastro] = React.useState(false);
   const username = useForm();
   const password = useForm();
   const { userLogin, error, loading } = React.useContext(UserContext);
@@ -20,10 +18,6 @@ const TLoginForm = () => {
     if (username.validate() && password.validate()) {
       userLogin(username.value, password.value);
     }
-  }
-
-  function handleCadastro() {
-    setCadastro((cadastro) => !cadastro);
   }
 
   return (
@@ -49,15 +43,6 @@ const TLoginForm = () => {
         </div>
       </div>
 
-
-      {/* <Link className={styles.perdeu} to="/login/perdeu">Perdeu a Senha?</Link>
-      <div className={styles.cadastro}>
-        <h2 className={styles.subtitle}>Cadastre-se</h2>
-        <p>Ainda não possui conta? Cadastre-se no site.</p>
-        <Link className={btnStyles.button} to="/login/criar">
-          Cadastro
-        </Link>
-      </div> */}
     </section>
   );
 };
